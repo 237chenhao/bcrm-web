@@ -2,4 +2,5 @@ server:
   port: 8090
 spring:
   application:
-    name: ch-bcrm-web
+    # 应用的名称,同一个服务的多个服务实例名称要一样
+    name: eureka-web
