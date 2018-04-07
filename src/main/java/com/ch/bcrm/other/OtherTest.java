@@ -1,6 +1,11 @@
 package com.ch.bcrm.other;
 
+import org.apache.commons.lang.RandomStringUtils;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.Random;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -10,34 +15,39 @@ import java.util.concurrent.TimeUnit;
 public class OtherTest {
 
     public static void main(String[] args) {
-        Thread a = new Thread(new ThreadTest("A"));
-        Thread b = new Thread(new ThreadTest("B"));
-        a.start();
-        b.start();
-        try {
-            a.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+                20,50,
+                0L, TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue<Runnable>(1024));
+        int i  =50;
+        while(i-- > 0){
+            String name = RandomStringUtils.randomAlphabetic(4);
+            executor.submit(new ThreadTest(name));
         }
-        System.out.println("main exit");
+
+        System.out.println("main thread exit");
     }
 
     static class ThreadTest implements Runnable{
 
         private String name;
+        RestTemplate restTemplate = new RestTemplate();
         public ThreadTest(String name){
             this.name = name;
         }
         @Override
         public void run() {
-            try {
-                int i = new Random().nextInt(3);
-                System.out.println(name+i);
-                TimeUnit.SECONDS.sleep(i);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            while (true){
+                int i = new Random().nextInt(10);
+                try {
+                    TimeUnit.SECONDS.sleep(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                String forObject = restTemplate.getForObject("http://localhost:8090", String.class);
+                System.out.println(name+"本次延时"+i+"s,返回="+forObject);
             }
-            System.out.println(Thread.currentThread().getName()+" name="+name);
         }
     }
 
