@@ -7,6 +7,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,6 +28,8 @@ import org.springframework.web.client.RestTemplate;
 @SpringCloudApplication
 //启用Hystrix仪表盘
 @EnableHystrixDashboard
+//开启Feign的支持功能
+@EnableFeignClients
 public class ChBcrmWebApplication {
     /**
      * 软负载均衡
