@@ -1,4 +1,4 @@
-package com.ch.bcrm.other;
+package com.ch.web.other;
 
 /**
  * @author cj-ch

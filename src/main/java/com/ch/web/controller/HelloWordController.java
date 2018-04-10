@@ -1,7 +1,7 @@
-package com.ch.bcrm.controller;
+package com.ch.web.controller;
 
 
-import com.ch.bcrm.service.HelloWordService;
+import com.ch.web.service.HelloWordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.ch.bcrm.service;
+package com.ch.web.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.command.AsyncResult;

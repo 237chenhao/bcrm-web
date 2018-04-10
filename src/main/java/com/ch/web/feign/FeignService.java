@@ -1,6 +1,7 @@
-package com.ch.bcrm.feign;
+package com.ch.web.feign;
 
-import com.ch.bcrm.model.User;
+
+import com.ch.service.api.model.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2018/4/9 上午9:14
  */
 @FeignClient(value = "micro-service")
-public interface FeignService {
+public interface FeignService extends com.ch.service.api.feign.FeignService {
 
     @RequestMapping("/feign1")
     String feign1();

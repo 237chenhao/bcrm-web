@@ -1,4 +1,4 @@
-package com.ch.bcrm.other;
+package com.ch.web.other;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
