@@ -31,10 +31,15 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
 
-        <!--引入断路器-->
+        <!--引入hystrix-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+        <!--引入Hystrix仪表盘-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
         </dependency>
 
         <!--引入feign 声明式服务调用,整合了Ribbon与Hystrix-->
