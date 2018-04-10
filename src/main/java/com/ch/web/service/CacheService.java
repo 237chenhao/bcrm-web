@@ -1,6 +1,6 @@
-package com.ch.bcrm.service;
+package com.ch.web.service;
 
-import com.ch.bcrm.model.User;
+
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
 import org.slf4j.Logger;
