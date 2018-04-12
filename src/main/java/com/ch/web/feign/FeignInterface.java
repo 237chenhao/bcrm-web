@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author cj-ch
  * @date 2018/4/9 上午9:14
  */
-@FeignClient(value = "micro-service",fallback = FeignInterfaceFallback.class)
+@FeignClient(value = "micro-service",fallback = FeignInterfaceFallback.class,configuration = FeignInterfaceConfiguration.class)
 public interface FeignInterface extends com.ch.service.api.feign.FeignService {
 
     @RequestMapping("/feign1")
